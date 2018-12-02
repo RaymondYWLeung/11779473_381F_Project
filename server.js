@@ -467,6 +467,9 @@ function apiGetRestaurant(res,req,query,callback){
 		 	dbo.collection("project_res").find(query).toArray(function(err, result) {
 		    	if (err) throw err;
 		    	db.close();
+		    	if(result.length == 0){
+		    		result = {}
+		    	}
 		    	callback(result);
 			})
 	})
