@@ -1,0 +1,40 @@
+<html>
+   <body>
+   		<H1>Restaurant</H1>
+     	<H1>User: <%= name %></H1>
+     	<H1>Showing <%= restaurant.length %> resturants</H1>
+        <% if(searchCriteria != ""){%>
+        <H1>Search Result of [ <%=searchCriteria%> ]</H1>
+        <% } %>
+
+     	<form action="/create_restaurant">
+     		<input type="submit" value="Create restaurant">
+     	</form>
+
+     	<hr>
+     	<form action="/search_restaurant" method="post">
+     		Search
+     		<input type="text" name="keyword">
+     		By
+     		<select name="search">
+                <option value="all">All</option>
+			    <option value="restaurant_id">Restaurant ID</option>
+			    <option value="name">Restaurant Name</option>
+                <option value="borough">Borough</option>
+                <option value="cuisine">Cuisine</option>
+                <option value="street">Street</option>
+                <option value="building">Building</option>
+                <option value="zipcode">Zipcode</option>
+                <option value="owner">Restaurant Owner</option>
+			 </select>
+			 <input type="submit">
+     	</form>
+     	<hr>
+     	
+
+     	<% for(var i = 0 ; i < restaurant.length ; i ++){ %>
+     		<p> <%=i+1%> : <a href=/restaurant_detail?_resID=<%= restaurant[i]._id%>><%=restaurant[i].name%><a> </p>
+     	<% } %>
+
+   </body>
+</html>

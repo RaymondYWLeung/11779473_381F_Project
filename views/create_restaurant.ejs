@@ -1,0 +1,18 @@
+<html>
+   <body>
+   		<H1>Create New Restaurant</H1>
+
+   		<form action="/addRestForm" method="post" enctype="multipart/form-data">
+   			Restaurant ID : <input type="text" name="restID"><br>
+	     	Name : <input type="text" name="name" required=""><br>
+	     	Cuisine : <input type="text" name="cuisine"><br>
+	     	Street: <input type="text" name="street"><br>
+	     	Building : <input type="text" name="building"><br>
+	     	Zipcode : <input type="text" name="zipcode"><br>
+	     	Borough : <input type="text" name="borough"><br>
+	     	Coordinates : <input type="text" name="gps_lon" placeholder="Latitude"><input type="text" name="gps_lat" placeholder="Longitude"><br>
+	     	Photo:<input type="file" name="filetoupload"><br>
+	     	<input type="submit">
+	     </form>
+   </body>
+</html>

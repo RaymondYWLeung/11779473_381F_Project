@@ -1,0 +1,14 @@
+<html>
+<body>
+	Pleas input your rating from 1 - 10 (10 represent highest score)<br>
+	<form action="/uploadRate" method="post">
+		<select name="score">
+			<% for(var i = 1 ; i <= 10 ; i++){%>
+                <option value=<%=i%>><%=i%></option>
+			 <%}%>
+		</select>
+		<input type="hidden" name="objID" value=<%=objID%> >
+		<input type="submit" value="Submit" >
+	</form>
+</body>
+</html>

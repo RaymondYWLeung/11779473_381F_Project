@@ -1,0 +1,26 @@
+<html>
+   <body>
+   		<H1>Update Restaurant</H1>
+
+   		<form action="/updateRestForm" method="post" enctype="multipart/form-data">
+   			Restaurant ID : <input type="text" name="restID" value=<%=rest[0].restaurant_id%> ><br>
+	     	Name : <input type="text" name="name" value=<%=rest[0].name%> required=""><br>
+	     	Cuisine : <input type="text" name="cuisine" value=<%=rest[0].cuisine%> ><br>
+	     	Street: <input type="text" name="street" value=<%=rest[0].address.street%> ><br>
+	     	Building : <input type="text" name="building" value=<%=rest[0].address.building %> ><br>
+	     	Zipcode : <input type="text" name="zipcode" value=<%=rest[0].address.zipcode%>><br>
+	     	Borough : <input type="text" name="borough" value=<%=rest[0].borough%>><br>
+	     	Coordinates : <input type="text" name="gps_lon" placeholder="Latitude" value=<%=rest[0].address.coord[0]%> >
+	     	<input type="text" name="gps_lat" placeholder="Longitude" value=<%=rest[0].address.coord[1]%>><br>
+	     	Photo:<input type="file" name="filetoupload"><br>
+	     	<% if(rest[0].photo != "" && typeof rest[0].photo != "undefined" && rest[0].photo != null){%>
+				<img src= 'data: <%=rest[0].photo_mimetype %>;base64, <%=rest[0].photo%>' width="40%" height="auto"><br>
+			<% } else {%>
+				No Photo
+			<% } %>
+	     	<input type="hidden" name="restaurant_id" value=<%=rest[0]._id%> >
+	     	<input type="submit">
+	     </form>
+   </body>
+
+</html>

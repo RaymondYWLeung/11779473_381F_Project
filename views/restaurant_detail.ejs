@@ -1,0 +1,54 @@
+<html>
+<body>
+	<% if(rest[0].photo != "" && typeof rest[0].photo != "undefined" && rest[0].photo != null){%>
+		<img src= 'data: <%=rest[0].photo_mimetype %>;base64, <%=rest[0].photo%>' width="100%" height="auto"><br>
+	<% } %>
+	Name: <%=rest[0].name%><br>
+	Borough : <%=rest[0].borough%><br>
+	Street : <%=rest[0].address.street%><br>
+	Building : <%=rest[0].address.building%><br>
+	Zipcode : <%=rest[0].address.zipcode%><br>
+	GPS : [ <%=rest[0].address.coord[0]%> , <%=rest[0].address.coord[1]%> ] <br>
+	<% var rated = false;%>
+	Rating : <% if(rest[0].grades == null) { %> 
+				No rating found<br>
+			 <% } else{ %>
+			 <br>
+			 <%for(i = 0 ; i < rest[0].grades.length ; i++){
+			 	%>
+			 	<% if(rest[0].grades[i].user == name) rated = true;%>
+			 	<%=i+1%>:<%=rest[0].grades[i].user%> ----- <%=rest[0].grades[i].score%>/10<br>
+			 	<%
+			 }
+			} %>
+
+	Owner : <%=rest[0].owner%><br>
+
+	<% if(name == rest[0].owner) {%>
+
+	<form action="/updateForm" method="post">
+		<input type="hidden" name="restObjId" value= <%=rest[0]._id%>>
+		<input type="submit" value="Update">
+	</form>
+
+	<form action="/deleteForm" method="post">
+		<input type="hidden" name="restObjId" value= <%=rest[0]._id%>>
+		<input type="submit" value="Delete">
+	</form>
+	<% } %>
+
+	<% if(name != rest[0].owner && !rated) {%>
+		<form action="/uploadRateForm" method="post">
+			<input type="hidden" name="restObjId" value= <%=rest[0]._id%>>
+			<input type="submit" value="Rate">
+		</form>
+	<% } %>
+
+	<% if(rest[0].address.coord[0] != "" && rest[0].address.coord[0] != "undefined" &&
+		rest[0].address.coord[1] != "" && rest[0].address.coord[1] != "undefined") {%>
+		<a href="http://www.google.com/maps/place/<%= rest[0].address.coord[1] %>,<%= rest[0].address.coord[1] %>">Google Map</a>
+	<% } %>
+	
+
+</body>
+</html>
