@@ -201,7 +201,7 @@ app.post('/api/restaurant/create',function(req,res) {
 			newForm.photo = req.body.photo;
 			newForm.photo_mimetype = req.body.photo_mimetype;
 
-			newForm.owner = req.body.username;
+			newForm.owner = req.body.user;
 
 			apiPostRestaurant(res,req,newForm,function(result){
 				if(result){
