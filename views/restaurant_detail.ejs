@@ -1,6 +1,6 @@
 <html>
 <body>
-	<% if(rest[0].photo != "" && typeof rest[0].photo != "undefined" && rest[0].photo != null){%>
+	<% if(rest[0].photo != "" && typeof rest[0].photo != "undefined" && rest[0].photo != null && rest[0].photo_mimetype == "image/jpeg"){%>
 		<img src= 'data: <%=rest[0].photo_mimetype %>;base64, <%=rest[0].photo%>' width="100%" height="auto"><br>
 	<% } %>
 	Name: <%=rest[0].name%><br>
