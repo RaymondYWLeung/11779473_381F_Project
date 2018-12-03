@@ -153,10 +153,11 @@ app.get('/api/restaurant/read/cuisine/:restCuisine',function(req,res){
 });
 
 app.post('/api/restaurant/create',function(req,res) {
+	console.log(req.body);
 
-	if(typeof req.body.username != "undefined" && typeof req.body.password != "undefined" && req.body.name != "undefined"){
+	if(typeof req.body.name != "undefined" && req.body.user != "undefined"){
 
-		var authenticated = false;
+		/*var authenticated = false;
 
 		userLogin(res,function(result){
 			if(result){
@@ -168,13 +169,13 @@ app.post('/api/restaurant/create',function(req,res) {
 						authenticated = true;
 				}
 			}
-		}
+		}*/
 
-		if(!authenticated){
+		/*if(!authenticated){
 			console.log("!authenticated");
 			var response = {"status" : "failed"};
 			res.status(404).json(response).end();
-		}else{
+		}else{*/
 			var newForm = {}
 			newForm.name = req.body.name;
 			newForm.borough = req.body.borough;
@@ -210,8 +211,8 @@ app.post('/api/restaurant/create',function(req,res) {
 					res.status(200).json(response).end();
 				}
 			})
-		}
-	})
+		//}
+	//})
 	}else{
 		console.log("Undefined variable");
 		var response = {"status" : "failed"};
