@@ -46,7 +46,7 @@
 
 	<% if(rest[0].address.coord[0] != "" && rest[0].address.coord[0] != "undefined" &&
 		rest[0].address.coord[1] != "" && rest[0].address.coord[1] != "undefined") {%>
-		<a href="http://www.google.com/maps/place/<%= rest[0].address.coord[1] %>,<%= rest[0].address.coord[1] %>">Google Map</a>
+		<a href="http://www.google.com/maps/place/<%= rest[0].address.coord[0] %>,<%= rest[0].address.coord[1] %>">Google Map</a>
 	<% } %>
 	
 
