@@ -13,7 +13,7 @@
 	     	Coordinates : <input type="text" name="gps_lon" placeholder="Latitude" value=<%=rest[0].address.coord[0]%> >
 	     	<input type="text" name="gps_lat" placeholder="Longitude" value=<%=rest[0].address.coord[1]%>><br>
 	     	Photo:<input type="file" name="filetoupload"><br>
-	     	<% if(rest[0].photo != "" && typeof rest[0].photo != "undefined" && rest[0].photo != null){%>
+	     	<% if(rest[0].photo != "" && typeof rest[0].photo != "undefined" && rest[0].photo != null && rest[0].photo_mimetype == "image/jpeg"){%>
 				<img src= 'data: <%=rest[0].photo_mimetype %>;base64, <%=rest[0].photo%>' width="40%" height="auto"><br>
 			<% } else {%>
 				No Photo
