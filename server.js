@@ -42,10 +42,14 @@ app.get('/login',function(req,res) {
 });
 
 app.get('/main',function(req,res) {
-	res.status(200);
-	findAllRestaurant(res, function(result){
-		res.render('main',{name:req.session.username, restaurant:result, searchCriteria:searchCriteria});
-	})
+	if(typeof req.session.username == "undefined"){
+		res.redirect('/');
+	}else{
+		res.status(200);
+		findAllRestaurant(res, function(result){
+			res.render('main',{name:req.session.username, restaurant:result, searchCriteria:searchCriteria});
+		})
+	}
 });
 
 app.get('/create_restaurant',function(req,res){
